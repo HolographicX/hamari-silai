@@ -46,6 +46,7 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  ScrollController scrollController = ScrollController();
   List keys = [new GlobalKey(), new GlobalKey(), new GlobalKey()];
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,7 @@ class HomeState extends State<Home> {
       body: Stack(
         children: [
           SingleChildScrollView(
+            controller: scrollController,
             child: Column(
               children: [
                 Landing(),
@@ -75,38 +77,38 @@ class HomeState extends State<Home> {
               width: 75,
             ),
           ),
-          Align(
-              alignment: const Alignment(0.95, -0.9),
-              child: Container(
-                child: Center(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.solidHeart,
-                      size: 17,
-                      color: const Color(0xffDD555C).withOpacity(0.36),
-                    ),
-                    const Text(
-                      'Support Us',
-                      style: TextStyle(fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                )),
-                height: 50,
-                width: 150,
-                decoration: BoxDecoration(
-                    color: const Color(0xffFFC2C6),
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 10,
-                        offset:
-                            const Offset(4, 3), // changes position of shadow
-                      ),
-                    ]),
-              )),
+          // Align(
+          //     alignment: const Alignment(0.95, -0.9),
+          //     child: Container(
+          //       child: Center(
+          //           child: Row(
+          //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //         children: [
+          //           Icon(
+          //             FontAwesomeIcons.solidHeart,
+          //             size: 17,
+          //             color: const Color(0xffDD555C).withOpacity(0.36),
+          //           ),
+          //           const Text(
+          //             'Support Us',
+          //             style: TextStyle(fontWeight: FontWeight.w500),
+          //           ),
+          //         ],
+          //       )),
+          //       height: 50,
+          //       width: 150,
+          //       decoration: BoxDecoration(
+          //           color: const Color(0xffFFC2C6),
+          //           borderRadius: const BorderRadius.all(Radius.circular(10)),
+          //           boxShadow: [
+          //             BoxShadow(
+          //               color: Colors.black.withOpacity(0.1),
+          //               blurRadius: 10,
+          //               offset:
+          //                   const Offset(4, 3), // changes position of shadow
+          //             ),
+          //           ]),
+          //     )),
           Align(
             alignment: const Alignment(-0.9, 0.9),
             child: Container(
@@ -142,8 +144,9 @@ class HomeState extends State<Home> {
                   duration: const Duration(milliseconds: 400),
                   tabBackgroundColor: const Color(0xff101917),
                   color: Colors.black,
-                  onTabChange: (value) =>
-                      Scrollable.ensureVisible(keys[value].currentContext),
+                  onTabChange: (value) {
+                    Scrollable.ensureVisible(keys[value].currentContext);
+                  },
                   tabs: const [
                     GButton(
                       icon: FontAwesomeIcons.users,
