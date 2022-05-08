@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamari_silai_website/about.dart';
 import 'package:hamari_silai_website/constants.dart';
 import 'package:hamari_silai_website/landing.dart';
+import 'package:hamari_silai_website/mission.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -52,7 +53,7 @@ class HomeState extends State<Home> {
         children: [
           SingleChildScrollView(
             child: Column(
-              children: [Landing(), About()],
+              children: [Landing(), About(), Mission()],
             ),
           ),
           Align(

@@ -15,7 +15,7 @@ class _AboutState extends State<About> {
     final width = MediaQuery.of(context).size.width;
 
     return SizedBox(
-      height: width < 600 ? height * 1.5 : height,
+      height: width < 600 ? height * 1.3 : height,
       width: width,
       child: Column(
         children: [
@@ -53,6 +53,7 @@ class _AboutState extends State<About> {
                   child: SizedBox(
                     width: 230,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: threeEs,
                     ),
@@ -66,6 +67,9 @@ class _AboutState extends State<About> {
   List<Widget> titleimage = [
     Stack(
       children: [
+        SizedBox(
+          height: 50,
+        ),
         Align(
           alignment: const Alignment(-0.8, -0.55),
           child: Image.asset(
@@ -81,6 +85,9 @@ class _AboutState extends State<About> {
           ),
         ),
       ],
+    ),
+    SizedBox(
+      height: 50,
     ),
     Align(
       alignment: const Alignment(0.7, -0.55),
@@ -134,6 +141,9 @@ class _AboutState extends State<About> {
         )
       ],
     ),
+    SizedBox(
+      height: 35,
+    ),
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -176,6 +186,9 @@ class _AboutState extends State<About> {
           ),
         )
       ],
+    ),
+    SizedBox(
+      height: 35,
     ),
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
