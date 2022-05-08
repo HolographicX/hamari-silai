@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hamari_silai_website/about.dart';
 import 'package:hamari_silai_website/constants.dart';
+import 'package:hamari_silai_website/impact.dart';
 import 'package:hamari_silai_website/landing.dart';
 import 'package:hamari_silai_website/mission.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -45,6 +46,7 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  List keys = [new GlobalKey(), new GlobalKey(), new GlobalKey()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,16 @@ class HomeState extends State<Home> {
         children: [
           SingleChildScrollView(
             child: Column(
-              children: [Landing(), About(), Mission()],
+              children: [
+                Landing(),
+                About(
+                  key: keys[0],
+                ),
+                Mission(key: keys[1]),
+                Impact(
+                  key: keys[2],
+                ),
+              ],
             ),
           ),
           Align(
@@ -99,7 +110,7 @@ class HomeState extends State<Home> {
           Align(
             alignment: const Alignment(-0.9, 0.9),
             child: Container(
-              width: 420,
+              width: 370,
               height: 60,
               decoration: BoxDecoration(
                 color: bgColor,
@@ -131,6 +142,8 @@ class HomeState extends State<Home> {
                   duration: const Duration(milliseconds: 400),
                   tabBackgroundColor: const Color(0xff101917),
                   color: Colors.black,
+                  onTabChange: (value) =>
+                      Scrollable.ensureVisible(keys[value].currentContext),
                   tabs: const [
                     GButton(
                       icon: FontAwesomeIcons.users,
@@ -143,10 +156,6 @@ class HomeState extends State<Home> {
                     GButton(
                       icon: FontAwesomeIcons.chartLine,
                       text: 'Impact',
-                    ),
-                    GButton(
-                      icon: FontAwesomeIcons.briefcase,
-                      text: 'Work',
                     ),
                   ],
                 ),
