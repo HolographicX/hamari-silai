@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
           defaultScale: true,
           breakpoints: const [
             ResponsiveBreakpoint.autoScale(480, name: MOBILE),
-            ResponsiveBreakpoint.autoScale(2460, name: '4K'),
             ResponsiveBreakpoint.autoScaleDown(900, name: TABLET),
             ResponsiveBreakpoint.autoScale(1200, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: '4K'),
           ],
           background: Container(color: const Color(0xFFF5F5F5))),
     );
