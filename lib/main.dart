@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hamari_silai_website/about.dart';
 import 'package:hamari_silai_website/constants.dart';
+import 'package:hamari_silai_website/footer.dart';
 import 'package:hamari_silai_website/impact.dart';
 import 'package:hamari_silai_website/landing.dart';
 import 'package:hamari_silai_website/mission.dart';
@@ -58,6 +59,7 @@ class HomeState extends State<Home> {
             controller: scrollController,
             child: Column(
               children: [
+                Footer(),
                 Landing(),
                 About(
                   key: keys[0],
