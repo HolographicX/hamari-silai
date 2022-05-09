@@ -59,7 +59,6 @@ class HomeState extends State<Home> {
             controller: scrollController,
             child: Column(
               children: [
-                Footer(),
                 Landing(),
                 About(
                   key: keys[0],
@@ -68,6 +67,7 @@ class HomeState extends State<Home> {
                 Impact(
                   key: keys[2],
                 ),
+                Footer(),
               ],
             ),
           ),
