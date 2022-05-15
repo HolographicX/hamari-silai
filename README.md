@@ -1,16 +1,7 @@
-# hamari_silai_website
+# Hamari Silai
 
-A new Flutter project.
+The source code for the official Hamari Silai website in flutter. 
 
-## Getting Started
+![hamari-silai-logo-with-text](https://user-images.githubusercontent.com/73580740/168459524-0e63e684-e5ed-4097-b964-e05c2a81f5e8.png)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Hamari Silai is an NGO that empowers rural women in India. We help these women lead better lives by giving them education and skills through tailoring ('silai') to avail them with a multitude of oppurtinites.
