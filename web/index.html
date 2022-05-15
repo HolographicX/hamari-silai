@@ -15,25 +15,61 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
+    <script src="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.js"></script>
+    <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.wasm" as="fetch" crossOrigin="anonymous">
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="A new Flutter project.">
+    <meta name="description" content="Hamari Silai is an NGO that empowers rural women in India. We help these women lead better lives by giving them education and skills through tailoring ('silai') to avail them with a multitude of oppurtunites.">
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="hamari_silai_website">
-    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" />
-
-    <title>hamari_silai_website</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="manifest" href="manifest.json">
+
+    <title>Hamari Silai</title>
+
+    <style>
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .indicator {
+            width: 10vw;
+            animation-name: spin;
+            animation-duration: 1500ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body style="overflow: hidden">
+    <div id="loading_indicator" class="container">
+        <img class="indicator" src="./assets/hamari_silai_logo.png">
+    </div>
     <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -101,6 +137,16 @@
             // Service workers not supported. Just drop the <script> tag.
             loadMainDartJs();
         }
+    </script>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                var loadingIndicator = document.getElementById("loading_indicator");
+                if (loadingIndicator) {
+                    loadingIndicator.remove();
+                }
+            }, 10000);
+        };
     </script>
 </body>
 
